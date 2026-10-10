@@ -9,7 +9,3 @@ def calculate_priority(urgency, affected_users):
     else:
         return "low"
         
-print(calculate_priority("high", 12))
-print(calculate_priority("high", 2))
-print(calculate_priority("low", 4))
-print(calculate_priority("low", 1))
