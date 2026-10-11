@@ -14,3 +14,9 @@ def validate_title(title):
         raise ValueError("title cannot be blank")
     return title.strip()
 
+def validate_urgency(urgency):
+    cleaned = urgency.strip().lower()
+    allowed = ["low", "medium", "high"]
+    if cleaned not in allowed:
+        raise ValueError("urgency must be low, medium or high")
+    return cleaned
