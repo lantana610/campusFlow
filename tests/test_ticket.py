@@ -2,6 +2,7 @@ import unittest
 from ticket_processor.ticket import calculate_priority
 from ticket_processor.ticket import validate_title
 from ticket_processor.ticket import calculate_priority, validate_title, validate_urgency
+from ticket_processor.ticket import calculate_priority, validate_title, validate_urgency
 
 class Testpriority(unittest.TestCase):
     def test_high_urgency_many_user_is_critical(self):
@@ -45,3 +46,10 @@ class TestValidate(unittest.TestCase):
     def test_invalid_urgency_is_rejected(self):
         with self.assertRaises(ValueError):
             validate_urgency("urgent")
+
+    def test_category_is_normalized(self):
+        self.assertEqual(validate_category("  hardware "), "Hardware")
+
+    def test_invalid_category_is_rejected(self):
+        with self.assertRaises(ValueError):
+            validate_category("invalid")

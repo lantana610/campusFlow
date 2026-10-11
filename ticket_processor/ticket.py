@@ -20,3 +20,10 @@ def validate_urgency(urgency):
     if cleaned not in allowed:
         raise ValueError("urgency must be low, medium or high")
     return cleaned
+
+def validate_category(category):
+    cleaned = category.strip().capitalize()
+    allowed = ["Network", "Hardware", "Software", "Other"]
+    if cleaned not in allowed:
+        raise ValueError("category must be Network, Hardware, Software or Other")
+    return cleaned
