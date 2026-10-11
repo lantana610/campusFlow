@@ -16,4 +16,12 @@ class Testpriority(unittest.TestCase):
         self.assertEqual(calculate_priority("low", 1), "low")
 
     def test_low_urgency_with_4_user_is_medium(self):
-        self.assertEqual(calculate_priority("medium", 4), "medium")
+        self.assertEqual(calculate_priority("low", 4), "medium")
+
+    def test_high_urgency_with_9_users_is_high(self):
+        self.assertEqual(calculate_priority("high", 9), "high")
+
+    def test_high_urgency_with_10_users_is_critical(self):
+        self.assertEqual(calculate_priority("high", 10), "critical") 
+
+    
