@@ -1,5 +1,5 @@
 import unittest
-from ticket_processor.ticket import calculate_priority
+from ticket_processor.ticket import calculate_priority, validate_category
 from ticket_processor.ticket import validate_title
 from ticket_processor.ticket import calculate_priority, validate_title, validate_urgency
 from ticket_processor.ticket import calculate_priority, validate_title, validate_urgency
