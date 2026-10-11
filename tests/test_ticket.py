@@ -1,6 +1,6 @@
 import unittest
 from ticket_processor.ticket import calculate_priority
-
+from ticket_processor.ticket import validate_title
 
 class Testpriority(unittest.TestCase):
     def test_high_urgency_many_user_is_critical(self):
@@ -30,4 +30,12 @@ class Testpriority(unittest.TestCase):
     def test_low_urgency_with_3_users_is_medium(self):
         self.assertEqual(calculate_priority("low", 3), "medium") 
 
-    
+class TestValidate(unittest.TestCase):
+    def test_empty_title(self):
+        with self.assertRaises(ValueError):
+            validate_title(" ")
+    def test_valid_title_is_returned(self):
+        self.assertEqual(validate_title(" wi-fi down "), "wi-fi down")
+
+
+         

@@ -9,3 +9,8 @@ def calculate_priority(urgency, affected_users):
     else:
         return "low"
         
+def validate_title(title):
+    if title.strip() == "":
+        raise ValueError("title cannot be blank")
+    return title.strip()
+
