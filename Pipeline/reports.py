@@ -21,7 +21,6 @@ def generate_report(tickets):
             report["by_status"][status] += 1
         if priority in report["by_priority"]:
             report["by_priority"][priority] += 1
-
     return report
 
 
@@ -36,3 +35,5 @@ def display_report(tickets):
     for priority, count in report["by_priority"].items():
         print(f"  {priority.title()}: {count}")
     print("\n")
+
+    
