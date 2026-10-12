@@ -1,4 +1,3 @@
-
 def find_ticket(tickets, ticket_id):
     #Return the ticket with the requested ID.
     for ticket in tickets:
