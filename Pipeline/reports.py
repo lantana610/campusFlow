@@ -21,7 +21,6 @@ def generate_report(tickets):
             report["by_status"][status] += 1
         if priority in report["by_priority"]:
             report["by_priority"][priority] += 1
-
     return report
 
 
