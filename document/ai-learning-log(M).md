@@ -81,5 +81,5 @@ I kept my existing test and Pipeline folder names and used the command appropria
 Testing and Verification:
 I ran the corrected command and checked the output. I noted any remaining errors rather than assuming the problem was fixed.
 
-Reflection:
+Reflections:
 I learned to check directory names and import statements before changing my project structure. I also learned that an error message can help identify where a problem originates.
