@@ -3,6 +3,7 @@ from ticket_processor.ticket import calculate_priority, validate_category
 from ticket_processor.ticket import validate_title
 from ticket_processor.ticket import calculate_priority, validate_title, validate_urgency
 from ticket_processor.ticket import calculate_priority, validate_title, validate_urgency
+from ticket_processor.ticket import validate_category, validate_affected_users
 
 class Testpriority(unittest.TestCase):
     def test_high_urgency_many_user_is_critical(self):
@@ -53,3 +54,18 @@ class TestValidate(unittest.TestCase):
     def test_invalid_category_is_rejected(self):
         with self.assertRaises(ValueError):
             validate_category("invalid")
+
+    def test_zero_users_is_rejected(self):
+        with self.assertRaises(ValueError):
+            validate_affected_users(0)
+
+    def test_decimal_users_is_rejected(self):
+        with self.assertRaises(TypeError):
+            validate_affected_users(2.5)
+
+    def test_boolean_users_is_rejected(self):
+        with self.assertRaises(TypeError):
+            validate_affected_users(True)
+
+    def test_valid_users_is_returned(self):
+        self.assertEqual(validate_affected_users(5), 5)

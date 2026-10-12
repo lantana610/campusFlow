@@ -27,3 +27,10 @@ def validate_category(category):
     if cleaned not in allowed:
         raise ValueError("category must be Network, Hardware, Software or Other")
     return cleaned
+
+def validate_affected_users(affected_users):
+    if isinstance(affected_users, bool) or not isinstance(affected_users, int):
+        raise TypeError("affected_users must be a whole number")
+    if affected_users < 1:
+        raise ValueError("affected_users must be a positive number")
+    return affected_users
