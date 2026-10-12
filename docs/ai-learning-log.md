@@ -32,4 +32,4 @@ My independent experiment/test: My first version rejected a valid 5, because I h
 Verification source or result: The boolean test showed the bug in my second version. I then used the fix the AI gave me, `isinstance(x, bool) or not isinstance(x, int)`, and all 22 tests passed.
 Decision: I rejected my own two versions after tracing them and testing them. I accepted the AI's final line only after the test confirmed it. I did not write that final line myself.
 Related file/commit: validate_affected_users in ticket.py, test_boolean_users_is_rejected 
-What I can now explain without AI and without AI: my ticket file, branching in github and to merge someone elses work
+What I can now explain without AI and without AI: my ticket file, branching in github and to merge someone elses work 
