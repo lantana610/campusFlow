@@ -35,3 +35,5 @@ def display_report(tickets):
     for priority, count in report["by_priority"].items():
         print(f"  {priority.title()}: {count}")
     print("\n")
+
+    
