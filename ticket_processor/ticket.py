@@ -34,3 +34,29 @@ def validate_affected_users(affected_users):
     if affected_users < 1:
         raise ValueError("affected_users must be a positive number")
     return affected_users
+
+def generate_ticket_id(tickets):
+    highest = 0
+    for ticket in tickets:
+        number = int(ticket["id"][1:])
+        if number > highest:
+            highest = number
+    return "T" + str(highest + 1).zfill(3)
+
+def create_ticket(title, category, urgency, affected_users, tickets):
+    title = validate_title(title)
+    category = validate_category(category)
+    urgency = validate_urgency(urgency)
+    affected_users = validate_affected_users(affected_users)
+    ticket = {
+        "id": generate_ticket_id(tickets),
+        "title": title,
+        "category": category,
+        "urgency": urgency,
+        "affected_users": affected_users,
+        "priority": calculate_priority(urgency, affected_users),
+        "status": "open",
+        "assigned_to": "None",
+    }
+    tickets.append(ticket)
+    return ticket

@@ -4,6 +4,7 @@ from ticket_processor.ticket import validate_title
 from ticket_processor.ticket import calculate_priority, validate_title, validate_urgency
 from ticket_processor.ticket import calculate_priority, validate_title, validate_urgency
 from ticket_processor.ticket import validate_category, validate_affected_users
+from ticket_processor.ticket import generate_ticket_id, create_ticket
 
 class Testpriority(unittest.TestCase):
     def test_high_urgency_many_user_is_critical(self):
@@ -69,3 +70,21 @@ class TestValidate(unittest.TestCase):
 
     def test_valid_users_is_returned(self):
         self.assertEqual(validate_affected_users(5), 5)
+
+class TestCreate(unittest.TestCase):
+    def test_create_ticket_calculates_priority(self):
+        tickets = []
+        ticket = create_ticket("Wi-Fi down", "network", "HIGH", 12, tickets)
+        self.assertEqual(ticket["priority"], "critical")
+        self.assertEqual(ticket["status"], "open")
+        self.assertEqual(len(tickets), 1)
+
+    def test_next_id_follows_highest(self):
+        tickets = [{"id": "T001"}, {"id": "T005"}]
+        self.assertEqual(generate_ticket_id(tickets), "T006")
+
+    def test_invalid_ticket_is_not_stored(self):
+        tickets = []
+        with self.assertRaises(ValueError):
+            create_ticket("Wi-Fi down", "network", "high", 0, tickets)
+        self.assertEqual(len(tickets), 0)
