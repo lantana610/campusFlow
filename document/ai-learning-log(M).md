@@ -1,4 +1,6 @@
-Date: 09/10/2026
+# FELLOW: UJIH MERCY
+
+entry one:
 Task: I need to know how to handle git commands like branch, pull and push, and merge requests.
 
 Question Asked:
@@ -14,7 +16,7 @@ My Implementation:
 I used what I learned to branch, push, pull and merge requests and also comment.
 
 
-Date: 10/10/2026
+entry two:
 Task:
 I needed to implement a function that assigns a CampusFlow ticket to a staff member.
 
@@ -36,8 +38,7 @@ I used unit tests in test/test_workflow.py to check ticket assignment and invali
 Reflection:
 I learned that a function should handle invalid input clearly instead of silently accepting incorrect values. In future, I will consider normal and error cases before implementing a function.
 
-Entry 2: Generating ticket reports
-Date: 10/10/2026
+Entry 3: Generating ticket reports
 Task:
 I needed to create a report showing the total number of tickets and counts grouped by status and priority.
 
@@ -59,8 +60,7 @@ I checked the empty-ticket case and a sample containing tickets with different s
 Reflection:
 I learned the importance of testing edge cases, particularly empty input. Next time, I will write down the expected report structure before implementing the function.
 
-Entry 3: Debugging Python test discovery
-Date: 12/10/2026
+Entry 4: Debugging Python test discovery
 Task:
 I wanted to run my unit tests but encountered an error when Python tried to discover the test files.
 
